@@ -1,0 +1,49 @@
+#!/bin/python3
+
+import turtle
+import random
+
+elsa = turtle.Turtle()
+screen = turtle.Screen()
+screen.bgcolor("blue")
+colours = ["purple", "white", "cyan"]
+
+# Tekst "Merry Christmas" bovenaan in beeld
+elsa.penup()
+elsa.goto(0, 200)
+elsa.color("white")
+elsa.write("Merry Christmas", align="center", font=("Script MT Bold", 24, "normal"))
+
+
+# Snowflake-programma starten
+elsa.penup()
+elsa.goto(0, 0)
+elsa.pendown()
+
+
+def branch():
+  elsa.color(random.choice(colours))
+  for i in range(3):
+    for i in range(3):
+      elsa.forward(30)
+      elsa.backward(30)
+      elsa.right(45)
+    elsa.left(90)
+    elsa.backward(30)
+    elsa.left(45)
+  elsa.right(90)
+  elsa.forward(90)
+
+# Sneeuwvlokken tekenen
+for i in range(8):
+  branch()
+  elsa.left(45)
+
+# Tekst "Happy New Year" onderaan in beeld
+elsa.penup()
+elsa.goto(0, -200)
+elsa.color("white")
+elsa.write("Happy New Year", align="center", font=("Script MT Bold", 24, "normal"))
+
+# Het Turtle-venster open laten staan
+turtle.done()
